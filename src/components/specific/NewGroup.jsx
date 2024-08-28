@@ -54,7 +54,7 @@ function NewGroup() {
   return (
     <Dialog open= {isNewGroup} onClose={closeHandler}>
      <Stack
-  p={{ xs: "1rem", sm: "3rem" }}
+  p={{ xs: "2rem", sm: "3rem" }}
   spacing={{ xs: "1rem", sm: "2rem" }} // Adjust spacing for different screen sizes
   width="100%"
 >

@@ -49,7 +49,7 @@ const Search = () => {
   width="100%"
   sx={{
     '@media (max-width:600px)': {
-      p: 1, // Reduce padding on smaller screens
+      p: 4, // Reduce padding on smaller screens
     }
   }}
 >
