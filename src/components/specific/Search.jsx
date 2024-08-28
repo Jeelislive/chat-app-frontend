@@ -41,35 +41,46 @@ const Search = () => {
   }, [search.value]);
 
     return (
-      <Dialog open={isSearch} onClose={searchCloseHandler}>
-        <Stack p={ "2rem" } direction={ "column" } width={ "25rem" }>
-          
-          <DialogTitle textAlign={ "center" }>Find People</DialogTitle>
-          <TextField
-            label=""
-            value={ search.value }
-            onChange={ search.changeHandler }
-            variant='outlined'
-            size='small'
-            InputProps={ {
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              )
-            }}
-          />
+      <Dialog open={isSearch} onClose={searchCloseHandler} fullWidth>
+    <Stack
+  p={2}
+  direction="column"
+  spacing={2}
+  width="100%"
+  sx={{
+    '@media (max-width:600px)': {
+      p: 1, // Reduce padding on smaller screens
+    }
+  }}
+>
+  <DialogTitle textAlign="center">Find People</DialogTitle>
+  <TextField
+    label=""
+    value={search.value}
+    onChange={search.changeHandler}
+    variant='outlined'
+    size='small'
+    fullWidth
+    InputProps={{
+      startAdornment: (
+        <InputAdornment position="start">
+          <SearchIcon />
+        </InputAdornment>
+      )
+    }}
+  />
+  <List>
+    {users.map((i) => (
+      <UserItem
+        user={i}
+        key={i._id}
+        handler={addFriendHandler}
+        handlerIsLoading={isLoadingSendFriendRequest}
+      />
+    ))}
+  </List>
+</Stack>
 
-          <List>
-            {
-              users.map((i) => (
-              <UserItem user={i} key={i._id} handler={addFriendHandler} 
-               handlerIsLoading={isLoadingSendFriendRequest} />
-              ))
-            }
-          </List>
-
-        </Stack>
       </Dialog>
     )
   }

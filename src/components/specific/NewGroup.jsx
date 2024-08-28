@@ -53,38 +53,60 @@ function NewGroup() {
 
   return (
     <Dialog open= {isNewGroup} onClose={closeHandler}>
-      <Stack p={ {
-        xs: "1rem",
-        sm: "3rem"
-      } }
-        spacing={ "2rem" }
-        width={ "25rem" } >
-        <DialogTitle textAlign={ "center" } variant="h4">New Group</DialogTitle>
+     <Stack
+  p={{ xs: "1rem", sm: "3rem" }}
+  spacing={{ xs: "1rem", sm: "2rem" }} // Adjust spacing for different screen sizes
+  width="100%"
+>
+  <DialogTitle
+    textAlign="center"
+    variant="h4"
+    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' } }}
+  >
+    New Group
+  </DialogTitle>
 
-        <TextField label="Group Name" value={ groupName.value } onChange={ groupName.changeHandler } />
+  <TextField
+    label="Group Name"
+    value={groupName.value}
+    onChange={groupName.changeHandler}
+    fullWidth
+  />
 
-        <Typography variant="body1">
-          Members
-        </Typography>
+  <Typography variant="body1" sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}>
+    Members
+  </Typography>
 
-        <Stack> 
-          { isLoading ? (
-            <Skeleton/>
-          ) : (
-            data?.friends?.map((i) => (
-              <UserItem user={ i } key={ i._id } handler={ selectMemberHandler }
-                isAdded={ selectedMembers.includes(i._id) }
-              />
-            ))
-         )}
-        </Stack>
+  <Stack>
+    {isLoading ? (
+      <Skeleton />
+    ) : (
+      data?.friends?.map((i) => (
+        <UserItem
+          user={i}
+          key={i._id}
+          handler={selectMemberHandler}
+          isAdded={selectedMembers.includes(i._id)}
+        />
+      ))
+    )}
+  </Stack>
 
-        <Stack direction={ "row" } justifyContent="space-evenly">
-          <Button variant="text" color="error" size="large" onClick={closeHandler}>Cancel</Button>
-          <Button variant="contained" size="large" onClick={ submitHandler } disabled={isLoadingNewGroup} >Create</Button>
-        </Stack>
+  <Stack direction="row" justifyContent="space-evenly">
+    <Button variant="text" color="error" size="large" onClick={closeHandler}>
+      Cancel
+    </Button>
+    <Button
+      variant="contained"
+      size="large"
+      onClick={submitHandler}
+      disabled={isLoadingNewGroup}
+    >
+      Create
+    </Button>
+  </Stack>
+</Stack>
 
-      </Stack>
     </Dialog>
   )
 }
