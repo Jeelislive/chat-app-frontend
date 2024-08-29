@@ -54,8 +54,12 @@ function NewGroup() {
   return (
     <Dialog open= {isNewGroup} onClose={closeHandler}>
      <Stack
+
   p={{ xs: "2rem", sm: "3rem" }}
   spacing={{ xs: "1rem", sm: "2rem" }}
+
+  p={{ xs: "1rem", sm: "3rem" }}
+  spacing={{ xs: "1rem", sm: "2rem" }} 
   width="100%"
 >
   <DialogTitle

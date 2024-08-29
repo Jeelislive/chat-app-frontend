@@ -49,7 +49,7 @@ const Search = () => {
   sx={{
     '@media (max-width:600px)': {
       p: 4,
-    }
+     }
   }}
 >
   <DialogTitle textAlign="center">Find People</DialogTitle>
