@@ -7,7 +7,6 @@ import UserItem from '../shared/UserItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsSearch } from '../../redux/reducers/misc';
 import { useLazySearchUserQuery, useSendFriendRequestMutation } from '../../redux/api/api';
-import toast from 'react-hot-toast';
 import { useAsyncMutation } from '../../hooks/hooks';
 
 const Search = () => {
@@ -49,7 +48,7 @@ const Search = () => {
   width="100%"
   sx={{
     '@media (max-width:600px)': {
-      p: 4, // Reduce padding on smaller screens
+      p: 4,
     }
   }}
 >
