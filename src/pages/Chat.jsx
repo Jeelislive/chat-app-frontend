@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import AppLayout from "../components/layout/AppLayout";
 import { IconButton, Skeleton, Stack } from "@mui/material";
-import { grayColor } from "../constants/color";
+import { grayColor, matBlack, orange2 } from "../constants/color";
 import { useRef } from "react";
 import { AttachFile as AttachFileIcon } from "@mui/icons-material";
 import { Send as SendIcon } from "@mui/icons-material";
@@ -190,6 +190,9 @@ function Chat({ chatId, user }) {
           padding={"8px 24px"}
           alignItems={"center"}
           position={"relative"}
+          sx={{
+            backgroundColor: matBlack,
+          }}
         >
           <IconButton
             sx={{
@@ -199,14 +202,16 @@ function Chat({ chatId, user }) {
             }}
             onClick={handleFileMenu}
           >
-            <AttachFileIcon />
+            <AttachFileIcon sx={{
+              color: 'white',
+            }} />
           </IconButton>
 
           <InputBox
             sx={{
               height: "100%",
             }}
-            placeholder="Type Messaeg here..."
+            placeholder="Type Messages here..."
             value={message}
             onChange={messageOnChange}
           />
@@ -214,12 +219,12 @@ function Chat({ chatId, user }) {
             type="submit"
             sx={{
               rotate: "-30deg",
-              bgcolor: orange,
+              bgcolor: matBlack,
               color: "white",
               marginLeft: "1rem",
               padding: "0.5rem",
               "&:hover": {
-                bgcolor: "error.dark",
+                bgcolor: 'rgba(0,0,0,0.7)',
               },
             }}
           >

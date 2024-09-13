@@ -1,7 +1,7 @@
 import React from 'react';
 import { keyframes, Skeleton, styled } from '@mui/material';
 import {Link as LinkComponent} from 'react-router-dom';
-import { grayColor, matBlack } from '../../constants/color';
+import { grayColor, matBlack, typeing } from '../../constants/color';
 
 const VisuallyHiddenInput = styled('input')({
     border: 0,
@@ -30,9 +30,10 @@ export const InputBox = styled("input")`
     height: 100%;   
     border: none;
     outline: none;
-    padding: 0 3rem ;
+    padding: 1rem 3rem ;
+    color: white;
     border-radius: 1.5rem;
-    background-color: ${grayColor};
+    background-color: ${typeing};
     
 `;
 
@@ -68,6 +69,7 @@ const bounceAnimation = keyframes`
 
 export const BouncingSkeleton = styled(Skeleton)(() => ({
   animation: `${bounceAnimation} 1s infinite`,
+  backgroundColor: '#f0f0f0',
 }));
 
 export function VisuallyHiddenInputComponent(props) {
