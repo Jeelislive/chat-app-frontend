@@ -66,6 +66,7 @@ const Header = () => {
       <Box sx={ { flexGrow: 1 } } height= "4rem">
         <AppBar position="static" sx={ {
           bgcolor: orange,
+          pb: "0.5rem",
         } } >
           <Toolbar>
             <Typography

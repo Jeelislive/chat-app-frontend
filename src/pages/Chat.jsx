@@ -162,9 +162,11 @@ function Chat({ chatId, user }) {
         box-sizing={"border-box"}
         padding={"1rem"}
         spacing={"1rem"}
-        bgcolor={grayColor}
         height={"90%"}
         sx={{
+          backgroundImage: 'url("/chat.jpg")', 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           overflowX: "hidden",
           overflowY: "auto",
         }}

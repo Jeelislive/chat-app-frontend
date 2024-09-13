@@ -5,7 +5,7 @@ import {VisuallyHiddenInputComponent} from '../components/styles/StyledComponent
 import { useInputValidation, useStrongPassword} from '6pp'
 import { usernameValidator } from '../utils/validators';
 import { useFileHandler } from '6pp';
-import bgimage from '../assets/bgchatapp.jpg'
+import loginbgnew from '../assets/loginbgnew.jpg';
 import axios from 'axios';
 import { server } from '../constants/config';
 import { useDispatch } from 'react-redux';
@@ -89,7 +89,7 @@ function Login() {
   return (
     <div
       style={ { 
-      background: `url(${ bgimage})`,
+      background: `url(${ loginbgnew})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -116,7 +116,7 @@ function Login() {
                 marginTop: '1rem'
               } }
                 onSubmit={ handlelogin }>
-                <TextField
+                <TextField  
                   required
                   fullWidth
                   label="Username"

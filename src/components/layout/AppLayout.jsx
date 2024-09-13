@@ -123,11 +123,10 @@ const AppLayout = () => (WrappedComponent) => {
                         md={ 4 }
                         lg={ 3 }
                         height={ "100%" }
-                        
                         sx={ {
                             display: { xs: "none", md: "block" },
                             padding: "2rem",
-                            bgcolor: "rgba(0,0,0,0.85)",
+                            bgcolor: "#262626",
                         } }
                     >
                         <Profile user={user}/>
