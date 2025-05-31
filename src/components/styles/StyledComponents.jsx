@@ -28,7 +28,6 @@ export const Link = styled(LinkComponent)(({ theme }) => ({
 export const InputBox = styled("input")(({ theme }) => ({
     width: '100%',
     height: '100%',
-    border: 'none',
     outline: 'none',
     padding: '1rem 3rem',
     color: theme.palette.text.primary, // Use primary text color for input
@@ -42,7 +41,6 @@ export const InputBox = styled("input")(({ theme }) => ({
 
  export const SearchField = styled("input")(({ theme }) => ({
     width: '20vmax',
-    border: 'none',
     outline: 'none',
     padding: '1rem 2rem',
     borderRadius: '1.5rem',
