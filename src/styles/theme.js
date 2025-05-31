@@ -18,35 +18,21 @@ import {
   typeing, // This is now textSecondaryDark
 } from '../constants/color';
 
+// Drastically simplify theme for testing
 export const theme = createTheme({
-  palette: {
-    mode: 'dark', // MUI specific: enables dark mode defaults
-    primary: {
-      main: accentDark, // Use the new accent color for primary actions
-    },
-    secondary: {
-      main: lightBlue, // Use the dark-theme compatible light blue
-    },
-    background: {
-      default: primaryDark, // Main background
-      paper: paperDark,    // Paper/card backgrounds
-    },
-    text: {
-      primary: textPrimaryDark,
-      secondary: textSecondaryDark,
-    },
-    divider: borderDark, // For dividers
-    action: {
-      hover: hoverDark, // For hover states on interactive elements
-      // disabledBackground: disabledDark, // Optional: if you need specific disabled bg
-      // disabled: disabledTextDark, // Optional: if you need specific disabled text
-    },
-    // chatBackground: secondaryDark, // Removed custom key from palette root
-    // It's good practice to define common colors here if they are used across components
-    // For example, if 'typeing' color was for something other than general text.
-    // For now, 'typeing' is mapped to textSecondaryDark, which is appropriate.
-    // If chatBackground is needed, access theme.palette.secondary.main or define it at theme root.
-  },
+  // palette: { // Temporarily comment out entire palette
+  //   mode: 'dark',
+  //   primary: {
+  //     main: "#3B82F6",
+  //   },
+  //   secondary: {
+  //     main: "#50A6C2",
+  //   },
+  // }
+});
+
+// Keep typography and components commented out or minimal if palette is the issue
+/*
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
@@ -211,3 +197,4 @@ export const theme = createTheme({
     // Add other component overrides as needed for a complete dark theme
   },
 });
+*/
