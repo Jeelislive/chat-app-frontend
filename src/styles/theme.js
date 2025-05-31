@@ -86,13 +86,7 @@ export const theme = createTheme({
         },
       },
     },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          // You can add specific styles for Drawer paper here
-        },
-      },
-    },
+    // MuiDrawer override moved down and consolidated
     MuiButton: {
       styleOverrides: {
         root: {
