@@ -41,10 +41,11 @@ export const theme = createTheme({
       // disabledBackground: disabledDark, // Optional: if you need specific disabled bg
       // disabled: disabledTextDark, // Optional: if you need specific disabled text
     },
-    chatBackground: secondaryDark, // Using secondaryDark for chat specific background areas
+    // chatBackground: secondaryDark, // Removed custom key from palette root
     // It's good practice to define common colors here if they are used across components
     // For example, if 'typeing' color was for something other than general text.
     // For now, 'typeing' is mapped to textSecondaryDark, which is appropriate.
+    // If chatBackground is needed, access theme.palette.secondary.main or define it at theme root.
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
