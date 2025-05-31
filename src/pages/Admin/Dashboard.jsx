@@ -42,7 +42,7 @@ const Appbar = (
       xs: 'none',
       lg: 'block',
     }}
-    color={"rgba(0, 0, 0, 0.7)"}
+    color={"text.secondary"}
     textAlign={"center"}
   >
     {
@@ -160,21 +160,22 @@ const Widget = ({title, value, Icon}) => (
       padding: '2rem',
       borderRadius: '1.5rem',
       width: "20rem",
-      margin: '2rem 0',
+      margin: '2rem 0', // This margin might be better handled by the parent Stack's spacing
     }}
   >
     <Stack  alignItems={"center"} spacing={"1rem"}>
       <Typography
-      sx={{
-        color: "rgba(0, 0, 0, 0.7)",
+      sx={(theme) => ({
+        color: theme.palette.text.secondary,
         borderRadius: '50%',
-        border: '5px solid rgba(0, 0, 0, 0.9)',
+        border: `5px solid ${theme.palette.primary.main}`, // Using primary color for border
         width: "5rem",
         height: "5rem",
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-      }}
+        fontWeight: 'bold', // Make the value stand out
+      })}
       >{value}</Typography>
       <Stack direction={"row"} spacing={"1rem"} alignItems={"center"} >
         {Icon}

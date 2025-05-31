@@ -2,7 +2,6 @@ import { AppBar, Backdrop, Box, Badge, Toolbar, Tooltip, Typography } from '@mui
 import React, { lazy, Suspense } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { orange } from "../../constants/color"
 import {
   Add as AddIcon,
   
@@ -65,7 +64,7 @@ const Header = () => {
     <> 
       <Box sx={ { flexGrow: 1 } } height= "4rem">
         <AppBar position="static" sx={ {
-          bgcolor: orange,
+          // bgcolor: orange, // Removed: Theme will provide this
           pb: "0.5rem",
         } } >
           <Toolbar>

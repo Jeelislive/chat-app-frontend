@@ -18,19 +18,20 @@ import {
 import React, { useState } from "react";
 import { useLocation, Link as LinkComponent, Navigate } from "react-router-dom";
 import { Dashboard as DashboardIcon } from "@mui/icons-material";
-import { matBlack } from "../../constants/color";
+// import { matBlack } from "../../constants/color"; // Will be replaced by theme
 import { useDispatch, useSelector } from "react-redux";
 import { adminLogout } from "../../redux/thunks/admin.auth";
 
-const Link = styled(LinkComponent)`
-  text-decoration: none;
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  color: black;
-  &:hover {
-    color: rgba(0, 0, 0, 0.54);
-  }
-`;
+const Link = styled(LinkComponent)(({ theme }) => ({
+  textDecoration: 'none',
+  borderRadius: '2rem',
+  padding: '1rem 2rem',
+  color: theme.palette.text.primary,
+  '&:hover': {
+    color: theme.palette.primary.main, // Or a slightly darker text.primary
+    backgroundColor: alpha(theme.palette.primary.main, 0.08), // Subtle hover background
+  },
+}));
 
 const adminTabs = [
   {
@@ -64,7 +65,17 @@ const logoutHandler = () => {
 };
 
   return (
-    <Stack width={w} direction={"column"} p={"3rem"} spacing={"3rem"}>
+    <Stack
+      width={w}
+      direction={"column"}
+      p={"3rem"}
+      spacing={"3rem"}
+      sx={(theme) => ({
+        backgroundColor: theme.palette.background.paper, // Sidebar background
+        height: "100vh", // Ensure sidebar takes full height
+        boxSizing: 'border-box',
+      })}
+    >
       <Typography variant="h5" textTransform={"uppercase"}>
         Admin
       </Typography>
@@ -75,13 +86,14 @@ const logoutHandler = () => {
             key={tab.path}
             to={tab.path}
             sx={
-              location.pathname === tab.path && {
-                bgcolor: matBlack,
-                color: "white",
+              (theme) => (location.pathname === tab.path && {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.primary.contrastText,
                 ":hover": {
-                  color: "white",
+                  color: theme.palette.primary.contrastText,
+                  backgroundColor: theme.palette.primary.dark, // Darken on hover for active
                 },
-              }
+              })
             }
           >
             <Stack direction={"row"} alignItems={"center"} spacing={"1rem"}>
@@ -148,9 +160,9 @@ const AdminLayout = ({ children }) => {
         xs={12}
         md={8}
         lg={9}
-        sx={{
-          bgcolor: "#f5f5f5",
-        }}
+        sx={(theme) => ({
+          bgcolor: theme.palette.grey[100], // Main content background
+        })}
       >
         {children}
       </Grid>
