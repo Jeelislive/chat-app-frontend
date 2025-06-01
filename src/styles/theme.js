@@ -18,7 +18,6 @@ import { createTheme } from '@mui/material/styles';
 //   typeing, // This is now textSecondaryDark
 // } from '../constants/color';
 
-// Drastically simplify theme for testing
 export const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -36,11 +35,7 @@ export const theme = createTheme({
       primary: "#EAEAEA",    // Was textPrimaryDark
       secondary: "#B0B0B0", // Was textSecondaryDark
     },
-  }
-});
-
-// Keep typography and components commented out or minimal if palette is the issue
-// Removed the /* and */ to uncomment the block
+  }, // Added comma here
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
@@ -77,7 +72,7 @@ export const theme = createTheme({
         root: {
           backgroundColor: "#1E1E1E", // Was secondaryDark
           color: "#EAEAEA", // Was textPrimaryDark
-          borderBottom: `1px solid ${"#333333"}`, // Was borderDark
+          borderBottom: '1px solid #333333', // Was borderDark
         },
       },
     },
@@ -142,7 +137,7 @@ export const theme = createTheme({
           borderRadius: '12px',
           backgroundColor: "#242424", // Was paperDark
           boxShadow: '0px 5px 15px rgba(0,0,0,0.2)', // Darker shadow for dark theme
-          border: `1px solid ${"#333333"}`, // Was borderDark
+          border: '1px solid #333333', // Was borderDark
         },
       },
     },
@@ -150,7 +145,7 @@ export const theme = createTheme({
         styleOverrides: {
             root: {
                 backgroundColor: "#242424", // Was paperDark
-                border: `1px solid ${"#333333"}`, // Was borderDark
+                border: '1px solid #333333', // Was borderDark
             }
         }
     },
@@ -159,7 +154,7 @@ export const theme = createTheme({
             paper: {
                 backgroundColor: "#1E1E1E", // Was secondaryDark
                 color: "#EAEAEA", // Was textPrimaryDark
-                borderRight: `1px solid ${"#333333"}`, // Was borderDark
+                borderRight: '1px solid #333333', // Was borderDark
             },
         },
     },
@@ -188,7 +183,7 @@ export const theme = createTheme({
         styleOverrides: {
             paper: {
                 backgroundColor: "#242424", // Was paperDark
-                border: `1px solid ${"#333333"}`, // Was borderDark
+                border: '1px solid #333333', // Was borderDark
             }
         }
     },
@@ -205,4 +200,3 @@ export const theme = createTheme({
     // Add other component overrides as needed for a complete dark theme
   },
 });
-// Removed the */ from the end
