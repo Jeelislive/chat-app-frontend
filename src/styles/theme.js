@@ -1,40 +1,40 @@
 import { createTheme } from '@mui/material/styles';
-import {
-  primaryDark,
-  secondaryDark,
-  paperDark,
-  textPrimaryDark,
-  textSecondaryDark,
-  accentDark,
-  accentDarkHover,
-  borderDark,
-  hoverDark,
-  // disabledDark, // Not used in current theme structure, can be added if needed
-  // disabledTextDark, // Not used in current theme structure, can be added if needed
-  orange, // This is now accentDark
-  lightBlue, // This is now a dark theme compatible blue
-  matBlack, // This is now primaryDark
-  grayColor, // This is now secondaryDark
-  typeing, // This is now textSecondaryDark
-} from '../constants/color';
+// import {
+//   primaryDark,
+//   secondaryDark,
+//   paperDark,
+//   textPrimaryDark,
+//   textSecondaryDark,
+//   accentDark,
+//   accentDarkHover,
+//   borderDark,
+//   hoverDark,
+//   // disabledDark, // Not used in current theme structure, can be added if needed
+//   // disabledTextDark, // Not used in current theme structure, can be added if needed
+//   orange, // This is now accentDark
+//   lightBlue, // This is now a dark theme compatible blue
+//   matBlack, // This is now primaryDark
+//   grayColor, // This is now secondaryDark
+//   typeing, // This is now textSecondaryDark
+// } from '../constants/color';
 
 // Drastically simplify theme for testing
 export const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: accentDark,
+      main: "#3B82F6", // Was accentDark
     },
     secondary: {
-      main: lightBlue,
+      main: "#50A6C2", // Was lightBlue
     },
     background: {
-      default: primaryDark,
-      paper: paperDark,
+      default: "#121212", // Was primaryDark
+      paper: "#242424",   // Was paperDark
     },
     text: {
-      primary: textPrimaryDark,
-      secondary: textSecondaryDark,
+      primary: "#EAEAEA",    // Was textPrimaryDark
+      secondary: "#B0B0B0", // Was textSecondaryDark
     },
   }
 });
