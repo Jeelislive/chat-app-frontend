@@ -19,17 +19,7 @@ import {
 } from '../constants/color';
 
 // Drastically simplify theme for testing
-export const theme = createTheme({
-  palette: { // Temporarily comment out entire palette
-    mode: 'dark',
-    primary: {
-      main: "#3B82F6",
-    },
-    secondary: {
-      main: "#50A6C2",
-    },
-  }
-});
+export const theme = createTheme({});
 
 // Keep typography and components commented out or minimal if palette is the issue
 /*
