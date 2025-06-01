@@ -66,14 +66,15 @@ const logoutHandler = () => {
 
   return (
     <Stack
-      width={w}
+      width={w} // Defaults to 100%, will fill its container (Grid cell or Drawer paper)
       direction={"column"}
-      p={"3rem"}
-      spacing={"3rem"}
+      p={{ xs: "1.5rem", md: "2rem", lg: "3rem" }} // Responsive padding
+      spacing={{ xs: "1.5rem", md: "2rem", lg: "3rem" }} // Responsive spacing
       sx={(theme) => ({
         backgroundColor: theme.palette.background.paper, // Sidebar background
-        height: "100vh", // Ensure sidebar takes full height
+        height: "100%", // Fill height of parent container
         boxSizing: 'border-box',
+        overflowY: 'auto', // Add scroll for smaller heights if content overflows
       })}
     >
       <Typography variant="h5" textTransform={"uppercase"}>
@@ -166,8 +167,17 @@ const AdminLayout = ({ children }) => {
       >
         {children}
       </Grid>
-      <Drawer open={isMobile} onClose={handleClose}>
-        <Sidebar w="50vw" />
+      <Drawer
+        open={isMobile}
+        onClose={handleClose}
+        sx={{
+          '& .MuiDrawer-paper': {
+            width: '280px', // Fixed width for the drawer
+            boxSizing: 'border-box',
+          },
+        }}
+      >
+        <Sidebar /> {/* Sidebar will take 100% width of the Drawer paper */}
       </Drawer>
     </Grid>
   );
