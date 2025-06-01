@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { CssBaseline /*, ThemeProvider*/ } from '@mui/material' // ThemeProvider commented out
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
-import { theme } from './styles/theme.js';
+// import { theme } from './styles/theme.js'; // theme import commented out
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // It's good practice to store client IDs in environment variables or a config file,
@@ -17,14 +17,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
+        {/* <ThemeProvider theme={theme}> */}
           <HelmetProvider>
             <CssBaseline />
             <div onContextMenu={(e) => e.preventDefault()}>
               <App />
             </div>
           </HelmetProvider>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </Provider>
     </GoogleOAuthProvider>
   </React.StrictMode>,
