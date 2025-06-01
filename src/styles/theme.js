@@ -40,7 +40,7 @@ export const theme = createTheme({
 });
 
 // Keep typography and components commented out or minimal if palette is the issue
-/*
+// Removed the /* and */ to uncomment the block
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
@@ -75,9 +75,9 @@ export const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: secondaryDark, // AppBar background
-          color: textPrimaryDark, // AppBar text color
-          borderBottom: `1px solid ${borderDark}`, // Optional: add a subtle border
+          backgroundColor: "#1E1E1E", // Was secondaryDark
+          color: "#EAEAEA", // Was textPrimaryDark
+          borderBottom: `1px solid ${"#333333"}`, // Was borderDark
         },
       },
     },
@@ -86,28 +86,28 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: '8px',
-          color: textPrimaryDark, // Ensure button text is readable
+          color: "#EAEAEA", // Was textPrimaryDark
         },
         containedPrimary: {
-          backgroundColor: accentDark,
-          color: textPrimaryDark, // Ensure text on primary button is readable
+          backgroundColor: "#3B82F6", // Was accentDark
+          color: "#EAEAEA", // Was textPrimaryDark
           '&:hover': {
-            backgroundColor: accentDarkHover,
+            backgroundColor: "#2563EB", // Was accentDarkHover
           },
         },
         containedSecondary: {
-          backgroundColor: lightBlue, // Using the dark-theme compatible light blue
-          color: primaryDark, // Text color for secondary button might need to be dark for contrast
+          backgroundColor: "#50A6C2", // Was lightBlue
+          color: "#121212", // Was primaryDark
           '&:hover': {
             backgroundColor: '#408DA6', // A slightly darker shade for hover
           },
         },
         outlined: {
-          borderColor: borderDark,
-          color: textSecondaryDark,
+          borderColor: "#333333", // Was borderDark
+          color: "#B0B0B0", // Was textSecondaryDark
           '&:hover': {
-            backgroundColor: hoverDark,
-            borderColor: accentDark,
+            backgroundColor: "#2A2A2A", // Was hoverDark
+            borderColor: "#3B82F6", // Was accentDark
           }
         }
       },
@@ -118,20 +118,20 @@ export const theme = createTheme({
           '& .MuiOutlinedInput-root': {
             borderRadius: '8px',
             '& fieldset': {
-              borderColor: borderDark,
+              borderColor: "#333333", // Was borderDark
             },
             '&:hover fieldset': {
-              borderColor: accentDark,
+              borderColor: "#3B82F6", // Was accentDark
             },
             '&.Mui-focused fieldset': {
-              borderColor: accentDark,
+              borderColor: "#3B82F6", // Was accentDark
             },
           },
           '& .MuiInputLabel-root': {
-            color: textSecondaryDark,
+            color: "#B0B0B0", // Was textSecondaryDark
           },
           '& .MuiInputLabel-root.Mui-focused': {
-            color: accentDark,
+            color: "#3B82F6", // Was accentDark
           },
         },
       },
@@ -140,46 +140,46 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: '12px',
-          backgroundColor: paperDark, // Card background
+          backgroundColor: "#242424", // Was paperDark
           boxShadow: '0px 5px 15px rgba(0,0,0,0.2)', // Darker shadow for dark theme
-          border: `1px solid ${borderDark}`, // Optional: subtle border for cards
+          border: `1px solid ${"#333333"}`, // Was borderDark
         },
       },
     },
     MuiPaper: { // General Paper component styling
         styleOverrides: {
             root: {
-                backgroundColor: paperDark,
-                border: `1px solid ${borderDark}`,
+                backgroundColor: "#242424", // Was paperDark
+                border: `1px solid ${"#333333"}`, // Was borderDark
             }
         }
     },
     MuiDrawer: { // Ensure Drawer also uses dark theme colors
         styleOverrides: {
             paper: {
-                backgroundColor: secondaryDark, // Drawer background
-                color: textPrimaryDark,
-                borderRight: `1px solid ${borderDark}`, // For left-anchored drawers
+                backgroundColor: "#1E1E1E", // Was secondaryDark
+                color: "#EAEAEA", // Was textPrimaryDark
+                borderRight: `1px solid ${"#333333"}`, // Was borderDark
             },
         },
     },
     MuiListItemText: { // Ensure list item text is readable
         styleOverrides: {
             primary: {
-                color: textPrimaryDark,
+                color: "#EAEAEA", // Was textPrimaryDark
             },
             secondary: {
-                color: textSecondaryDark,
+                color: "#B0B0B0", // Was textSecondaryDark
             }
         }
     },
     MuiIconButton: { // Ensure icon buttons are styled correctly
         styleOverrides: {
             root: {
-                color: textSecondaryDark,
+                color: "#B0B0B0", // Was textSecondaryDark
                 '&:hover': {
-                    backgroundColor: hoverDark,
-                    color: accentDark,
+                    backgroundColor: "#2A2A2A", // Was hoverDark
+                    color: "#3B82F6", // Was accentDark
                 }
             }
         }
@@ -187,17 +187,17 @@ export const theme = createTheme({
     MuiMenu: {
         styleOverrides: {
             paper: {
-                backgroundColor: paperDark,
-                border: `1px solid ${borderDark}`,
+                backgroundColor: "#242424", // Was paperDark
+                border: `1px solid ${"#333333"}`, // Was borderDark
             }
         }
     },
     MuiMenuItem: {
         styleOverrides: {
             root: {
-                color: textPrimaryDark,
+                color: "#EAEAEA", // Was textPrimaryDark
                 '&:hover': {
-                    backgroundColor: hoverDark,
+                    backgroundColor: "#2A2A2A", // Was hoverDark
                 }
             }
         }
@@ -205,4 +205,4 @@ export const theme = createTheme({
     // Add other component overrides as needed for a complete dark theme
   },
 });
-*/
+// Removed the */ from the end
