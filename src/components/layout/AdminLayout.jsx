@@ -4,9 +4,9 @@ import {
   Grid,
   IconButton,
   Stack,
-  styled,
   Typography,
 } from "@mui/material";
+import { styled, alpha } from "@mui/material/styles";
 import {
   Close as CloseIcon,
   ExitToApp as ExitToAppIcon,
