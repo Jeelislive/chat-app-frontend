@@ -73,7 +73,7 @@ const Header = () => {
               sx={ {
                 display: { xs: "none", sm: "block" },
               } }
-            >chattu</Typography>
+            >chat app</Typography>
             <Box sx={ {
               display: { xs: 'block', sm: 'none' },
             } }>
