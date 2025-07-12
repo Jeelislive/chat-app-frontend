@@ -9,7 +9,7 @@ import moment from "moment";
 import { Box } from "@mui/system";
 import { fileFormat } from "../../lib/features";
 import RenderAttachment from "../../components/shared/RenderAttachment";
-import { useFetchData } from "6pp";
+import  useFetchWithCredentials  from "../../hooks/useFetchWithCredentials";
 import { server } from "../../constants/config";
 import { useErrors } from "../../hooks/hooks";
 
@@ -91,7 +91,7 @@ const columns = [
 ];
 
 const MessageMenagement = () => {
-  const {loading, data, error} = useFetchData(`${server}/api/v1/admin/messages`, "dashboard-messages");
+  const {loading, data, error} = useFetchWithCredentials(`${server}/api/v1/admin/messages`, "dashboard-messages");
 
   useErrors([{
     isError: error,

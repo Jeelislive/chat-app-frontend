@@ -4,7 +4,7 @@ import Table from '../../components/shared/Table'
 import { Avatar, Skeleton } from '@mui/material';
 import { dashboardData } from '../../constants/SampleData';
 import { transformImage } from "../../lib/features"
-import { useFetchData } from '6pp';
+import  useFetchWithCredentials  from "../../hooks/useFetchWithCredentials";
 import { server } from '../../constants/config';
 import { useErrors } from '../../hooks/hooks';
 
@@ -53,7 +53,7 @@ const columns = [
 
 const UserManagement = () => {
 
-  const {loading, data, error} = useFetchData(`${server}/api/v1/admin/users`, "dashboard-users");
+  const {loading, data, error} = useFetchWithCredentials(`${server}/api/v1/admin/users`, "dashboard-users");
 
   useErrors([{
     isError: error,

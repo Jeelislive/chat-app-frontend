@@ -5,14 +5,14 @@ import { AdminPanelSettings as AdminPanelSettingsIcon,  Group as GroupIcon,  Mes
 import moment from 'moment'
 import { CurveButton, SearchField } from '../../components/styles/StyledComponents'
 import { DoughnutChart, LineChart } from '../../components/specific/Charts'
-import {useFetchData} from '6pp'
+import  useFetchWithCredentials  from "../../hooks/useFetchWithCredentials";
 import { server } from '../../constants/config'
 import {LayoutLoader} from '../../components/layout/Loaders'
 import {useErrors} from '../../hooks/hooks'
 
 const Dashboard = () => {
 
-  const {loading, data, error} = useFetchData(`${server}/api/v1/admin/stats`, "dashboard-stats");
+  const {loading, data, error} = useFetchWithCredentials(`${server}/api/v1/admin/stats`, "dashboard-stats");
 
   const { stats } = data || {};
 

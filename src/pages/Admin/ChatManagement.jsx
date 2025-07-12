@@ -5,7 +5,7 @@ import AvatarCard from "../../components/shared/AvatarCard";
 import Table from "../../components/shared/Table";
 import { dashboardData } from "../../constants/SampleData"
 import { transformImage } from "../../lib/features";
-import { useFetchData } from "6pp";
+import  useFetchWithCredentials  from "../../hooks/useFetchWithCredentials";
 import { server } from "../../constants/config";
 import { useErrors } from "../../hooks/hooks";
 
@@ -74,7 +74,7 @@ const columns = [
 
 const ChatManagement = () => {
 
-  const {loading, data, error} = useFetchData(`${server}/api/v1/admin/chats`, "dashboard-chats");
+  const {loading, data, error} = useFetchWithCredentials(`${server}/api/v1/admin/chats`, "dashboard-chats");
 
 
   useErrors([{
