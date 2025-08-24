@@ -46,6 +46,14 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
+        // Prevent function mangling that breaks MUI
+        keep_fnames: true,
+        keep_classnames: true,
+      },
+      mangle: {
+        // Preserve function names to prevent MUI breakage
+        keep_fnames: true,
+        keep_classnames: true,
       },
     },
   },
@@ -53,5 +61,9 @@ export default defineConfig({
     hmr: {
       overlay: false
     }
-  }
+  },
+  // Add optimization for better module resolution
+  optimizeDeps: {
+    include: ['@mui/material', '@mui/icons-material', 'react', 'react-dom'],
+  },
 })
