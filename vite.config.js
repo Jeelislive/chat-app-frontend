@@ -46,14 +46,22 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        // Prevent function mangling that breaks MUI
+        // Keep function names and classes to prevent MUI breakage
         keep_fnames: true,
         keep_classnames: true,
+        // Don't mangle property names
+        properties: false,
       },
       mangle: {
-        // Preserve function names to prevent MUI breakage
+        // Preserve function names and class names to prevent MUI breakage
         keep_fnames: true,
         keep_classnames: true,
+        // Don't mangle properties
+        properties: false,
+      },
+      format: {
+        // Preserve function names in comments
+        comments: false,
       },
     },
   },
@@ -65,5 +73,7 @@ export default defineConfig({
   // Add optimization for better module resolution
   optimizeDeps: {
     include: ['@mui/material', '@mui/icons-material', 'react', 'react-dom'],
+    // Force pre-bundling of MUI to prevent runtime issues
+    force: true,
   },
 })
