@@ -1,4 +1,4 @@
-import { Grid, Skeleton, Stack } from '@mui/material'
+import { Grid, Skeleton, Stack, Box, Typography } from '@mui/material'
 import React from 'react'
 import { BouncingSkeleton } from '../styles/StyledComponents';
 
@@ -41,6 +41,31 @@ const LayoutLoader = () => {
                 </Grid>
 
         </Grid>
+    )
+}
+
+// Lightweight loader for initial app loading
+const AppLoader = () => {
+    return (
+        <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            height="100vh"
+            bgcolor="background.default"
+        >
+            <Stack spacing={2} alignItems="center">
+                <BouncingSkeleton
+                    variant="circular"
+                    width={60}
+                    height={60}
+                />
+                <Typography variant="h6" color="text.secondary">
+                    Loading Chat App...
+                </Typography>
+            </Stack>
+        </Box>
     )
 }
 
@@ -88,4 +113,4 @@ const TypingLoader = () => {
       );
 };
 
-export { LayoutLoader, TypingLoader };
+export { LayoutLoader, TypingLoader, AppLoader };

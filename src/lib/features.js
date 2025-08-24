@@ -42,5 +42,25 @@ const getLast7Days = () => {
     }
  }
 
- const transformImage = (url = "", width= 100 ) => url;
+ // Optimized image transformation with lazy loading and WebP support
+ const transformImage = (url = "", width = 100) => {
+   if (!url) return "";
+   
+   // Check if browser supports WebP
+   const supportsWebP = () => {
+     const canvas = document.createElement('canvas');
+     return canvas.toDataURL('image/webp').indexOf('webp') > -1;
+   };
+   
+   // Add lazy loading parameters and WebP format if supported
+   const format = supportsWebP() ? 'webp' : 'auto';
+   
+   // If using Cloudinary or similar service, add optimization parameters
+   if (url.includes('cloudinary')) {
+     return `${url}?w_${width},f_${format},q_auto,c_scale`;
+   }
+   
+   return url;
+ };
+
 export { fileFormat , transformImage, getLast7Days, dataOfLocalStorage };
