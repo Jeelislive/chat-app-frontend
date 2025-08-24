@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    sourcemap: false, // Disable source maps in production for smaller bundles
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -16,7 +16,7 @@ export default defineConfig({
             if (id.includes('@mui/icons-material')) {
               return 'mui-icons';
             }
-            if (id.includes('react-router-dom') || id.includes('@remix-run') || id.includes('react-router')) {
+            if (id.includes('react-router')) {
               return 'react-router';
             }
             if (id.includes('axios')) {
@@ -34,34 +34,26 @@ export default defineConfig({
             if (id.includes('moment')) {
               return 'moment';
             }
-            // Catch-all for other node_modules
             return 'vendor';
           }
         },
       },
     },
     chunkSizeWarningLimit: 1000,
+    // Fix: Use less aggressive minification to prevent MUI breakage
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        // Keep function names and classes to prevent MUI breakage
+        // Prevent function name mangling that breaks MUI
         keep_fnames: true,
         keep_classnames: true,
-        // Don't mangle property names
-        properties: false,
       },
       mangle: {
-        // Preserve function names and class names to prevent MUI breakage
+        // Preserve function names to prevent MUI errors
         keep_fnames: true,
         keep_classnames: true,
-        // Don't mangle properties
-        properties: false,
-      },
-      format: {
-        // Preserve function names in comments
-        comments: false,
       },
     },
   },
@@ -72,8 +64,6 @@ export default defineConfig({
   },
   // Add optimization for better module resolution
   optimizeDeps: {
-    include: ['@mui/material', '@mui/icons-material', 'react', 'react-dom'],
-    // Force pre-bundling of MUI to prevent runtime issues
-    force: true,
+    include: ['@mui/material', '@mui/icons-material'],
   },
 })

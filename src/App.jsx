@@ -1,8 +1,8 @@
-import React, {lazy, useEffect}  from 'react'
+import React, {lazy, useEffect} from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ProtectRoute from './components/auth/ProtectRoute'
 import { Suspense } from 'react'
-import { LayoutLoader, AppLoader } from './components/layout/Loaders'
+import { LayoutLoader } from './components/layout/Loaders'
 import axios from 'axios'
 import { server } from './constants/config'
 import { useDispatch, useSelector } from 'react-redux'
@@ -56,7 +56,7 @@ const App = () => {
   }, [user]);
 
     return loader ? (
-    <AppLoader />
+    <LayoutLoader />
   ) : (
     <BrowserRouter>
       <Suspense fallback={<LayoutLoader />}>
