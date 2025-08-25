@@ -10,16 +10,12 @@ import {userExist, userNotExist} from './redux/reducers/auth'
 import {Toaster} from 'react-hot-toast'
 import { SocketProvider } from './socket'
 
-// Core user routes - prioritize loading
 const Home = lazy(() => import('./pages/Home'))
 const Login = lazy(() => import('./pages/Login'))
 const Chat = lazy(() => import('./pages/Chat'))
-
-// Secondary routes - load on demand
 const Groups = lazy(() => import('./pages/Groups'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-// Admin routes - separate bundle since they're rarely used
 const AdminLogin = lazy(() => import('./pages/Admin/AdminLogin'))
 const Dashboard = lazy(() => import('./pages/Admin/Dashboard'))
 const UserManagement = lazy(() => import('./pages/Admin/UserManagement'))
@@ -32,28 +28,10 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Optimize initial auth check - reduce timeout and add error handling
-    const authCheck = axios.create({
-      timeout: 5000, // 5 second timeout
-      withCredentials: true
-    });
-    
-    authCheck.get(`${server}/api/v1/user/me`)
+    axios.get(`${server}/api/v1/user/me`, { withCredentials: true })
     .then(({ data }) => dispatch(userExist(data.user)))
     .catch(() => dispatch(userNotExist()));
   }, [dispatch]);
-
-  // Preload critical routes after initial load
-  useEffect(() => {
-    if (user) {
-      // Preload main chat components when user is authenticated
-      import('./pages/Chat');
-      import('./pages/Groups');
-    } else {
-      // Preload login when user is not authenticated
-      import('./pages/Login');
-    }
-  }, [user]);
 
     return loader ? (
     <LayoutLoader />
