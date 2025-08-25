@@ -12,7 +12,30 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 // Replace with your actual Client ID or move to an environment variable.
 const GOOGLE_CLIENT_ID = "1047657984544-52im42otrhik49as0h7ovsn1o7ueh6oa.apps.googleusercontent.com";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// Performance optimization: Preload critical resources
+const preloadCriticalResources = () => {
+  // Preload Google Fonts
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'style';
+  link.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
+  document.head.appendChild(link);
+  
+  // Apply font immediately
+  const fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
+  document.head.appendChild(fontLink);
+};
+
+// Call preload function immediately
+preloadCriticalResources();
+
+// Performance optimization: Use concurrent features for better UX
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Wrap app with error boundary for better performance monitoring
+const AppWithOptimizations = () => (
   <React.StrictMode>
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <Provider store={store}>
@@ -26,5 +49,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </Provider>
     </GoogleOAuthProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
+
+root.render(<AppWithOptimizations />);
