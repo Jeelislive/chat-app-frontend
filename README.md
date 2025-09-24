@@ -1,7 +1,5 @@
 # ConnectSphere — Frontend (Vite + React)
 
-Live: https://chat-app-frontend-drab-seven.vercel.app
-
 A fast, modern, and privacy-first chat frontend built with Vite + React, Material UI, Redux Toolkit, and Socket.IO. Optimized for quick loads, smooth navigation, and a clean, minimal UI.
 
 ## Features
