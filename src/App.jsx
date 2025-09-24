@@ -14,6 +14,7 @@ import { SocketProvider } from './socket'
 const Home = lazy(() => import('./pages/Home'))
 const Login = lazy(() => import('./pages/Login'))
 const Chat = lazy(() => import('./pages/Chat'))
+const Landing = lazy(() => import('./pages/Landing'))
 
 // Secondary routes - load on demand
 const Groups = lazy(() => import('./pages/Groups'))
@@ -75,6 +76,9 @@ const App = () => {
   // Performance optimization: Memoize routes to prevent unnecessary re-renders
   const routes = useMemo(() => (
     <Routes>
+      {/* Public Landing Page */}
+      <Route path="/" element={<Landing />} />
+
       <Route
         element={
           <SocketProvider>
@@ -82,7 +86,7 @@ const App = () => {
           </SocketProvider>
         }
       >
-        <Route path="/" element={<Home />} />
+        <Route path="/app" element={<Home />} />
         <Route path="/chat/:chatId" element={<Chat />} />
         <Route path="/groups" element={<Groups />} />
       </Route>
@@ -90,7 +94,7 @@ const App = () => {
       <Route
         path="/login"
         element={
-          <ProtectRoute user={!user} redirect="/">
+          <ProtectRoute user={!user} redirect="/app">
             <Login />
           </ProtectRoute>
         }
